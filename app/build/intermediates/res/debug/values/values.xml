@@ -960,44 +960,20 @@
     <color name="hot_pink">#FF4081</color>
     <color name="status_bar">#26000000</color>
     <color name="time_picker_gray">#212121</color>
-    <declare-styleable name="BaseTheme"><attr format="color" name="actionBarIconColor"/><attr format="dimension" name="actionBarInsetStart"/><attr format="dimension" name="spinnerBarInsetStart"/><attr format="reference" name="popupItemBackground"/><attr format="reference" name="photoItemForeground"/><attr format="reference" name="photoItemForegroundBorderless"/></declare-styleable>
-    <declare-styleable name="BezelImageView"><attr format="reference" name="maskDrawable"/><attr format="reference" name="borderDrawable"/><attr format="boolean" name="desaturateOnPress"/></declare-styleable>
-    <declare-styleable name="CollectionView"><attr format="dimension" name="internalPadding"/><attr format="dimension" name="contentTopClearance"/></declare-styleable>
-    <declare-styleable name="DrawShadowFrameLayout"><attr format="reference" name="shadowDrawable"/><attr format="boolean" name="shadowVisible"/></declare-styleable>
-    <declare-styleable name="MessageCard"><attr format="string" name="messageTitle"/><attr format="string" name="messageText"/><attr format="string" name="button1text"/><attr format="string" name="button1tag"/><attr format="boolean" name="button1emphasis"/><attr format="string" name="button2text"/><attr format="string" name="button2tag"/><attr format="boolean" name="button2emphasis"/><attr format="color" name="emphasisColor"/></declare-styleable>
-    <declare-styleable name="MultiSwipeRefreshLayout"><attr format="reference" name="foreground"/></declare-styleable>
-    <declare-styleable name="ScrimInsetsView"><attr format="reference|color" name="insetForeground"/></declare-styleable>
-    <declare-styleable name="ThemeIOSched"><attr format="boolean" name="isFloatingWindow"/></declare-styleable>
     <!-- From: file:/C:/Users/MK/Documents/GitHub/InterruptionsHelper/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="alarm_info_font_size">36sp</dimen>
-    <dimen name="alarm_undo_bar_horizontal_margin">8dp</dimen>
-    <dimen name="body_font_size">18sp</dimen>
-    <dimen name="button_footer_height">88dip</dimen>
     <dimen name="footer_button_layout_margin">16dip</dimen>
     <dimen name="footer_button_size">56dip</dimen>
-    <dimen name="toast_bar_bottom_margin_in_conversation">24dip</dimen>
     <!-- From: file:/C:/Users/MK/Documents/GitHub/InterruptionsHelper/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_settings">Settings</string>
-    <string name="alarm_deleted">Alarm deleted.</string>
-    <string name="alarm_undo">undo</string>
     <string name="app_name">InterruptionsHelper</string>
-    <string name="button_menu">More options</string>
     <string name="hello_world">Hello world!</string>
-    <string name="no_alarms">No Alarms</string>
     <!-- From: file:/C:/Users/MK/Documents/GitHub/InterruptionsHelper/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="android:Theme.Material">
         <!-- Customize your theme here. -->
-    </style>
-    <style name="body">
-        <item name="android:textSize">@dimen/body_font_size</item>
-    </style>
-    <style name="no_alarms">
-        <item name="android:textSize">@dimen/alarm_info_font_size</item>
-        <item name="android:textStyle">bold</item>
     </style>
 </resources>
