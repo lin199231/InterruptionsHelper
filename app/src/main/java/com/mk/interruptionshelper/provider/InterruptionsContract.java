@@ -11,9 +11,9 @@ import android.net.Uri;
  * ClockContract defines the data model of clock related information.
  * This data is stored in a number of tables:
  *
- * The {AlarmsColumns} table holds the user created alarms
+ * The {InterruptionsColumns} table holds the user created interruptions
  * The {InstancesColumns} table holds the current state of each
- * alarm in the AlarmsColumn table.
+ * interruption in the InterruptionsColumn table.
  * The {CitiesColumns} table holds all user selectable cities
  */
 

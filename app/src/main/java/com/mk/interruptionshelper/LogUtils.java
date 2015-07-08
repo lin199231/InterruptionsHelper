@@ -25,7 +25,7 @@ import android.util.Log;
 
 public class LogUtils {
 
-    public final static String LOGTAG = "AlarmClock";
+    public final static String LOGTAG = "InterruptionsAlarm";
     public final static boolean DEBUG = "eng".equals(Build.TYPE) || "userdebug".equals(Build.TYPE);
 
     public static void v(String message, Object... args) {
