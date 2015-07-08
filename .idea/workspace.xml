@@ -7,11 +7,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b2aa16c-7a3f-4906-b1ed-fa5e7b07943e" name="Default" comment="">
+<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/provider/InterruptionsAlarmInstance.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/provider/InterruptionsAlarm.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/provider/InterruptionsAlarm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/provider/InterruptionsContract.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/provider/InterruptionsContract.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/LogUtils.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/LogUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+=======
+      <change type="DELETED" beforePath="C:\Users\MK\Documents\GitHub\InterruptionsHelper\app\build\intermediates\res\debug\animator\fade_in.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\MK\Documents\GitHub\InterruptionsHelper\app\build\intermediates\res\debug\animator\fade_out.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\MK\Documents\GitHub\InterruptionsHelper\app\build\intermediates\res\debug\drawable-hdpi\ic_menu_revert_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\MK\Documents\GitHub\InterruptionsHelper\app\build\intermediates\res\debug\drawable-hdpi\ic_noalarms.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\MK\Documents\GitHub\InterruptionsHelper\app\build\intermediates\res\debug\drawable-mdpi\ic_menu_revert_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\MK\Documents\GitHub\InterruptionsHelper\app\build\intermediates\res\debug\drawable-mdpi\ic_noalarms.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\MK\Documents\GitHub\InterruptionsHelper\app\build\intermediates\res\debug\drawable-xhdpi\ic_menu_revert_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\MK\Documents\GitHub\InterruptionsHelper\app\build\intermediates\res\debug\drawable-xhdpi\ic_noalarms.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\MK\Documents\GitHub\InterruptionsHelper\app\build\intermediates\res\debug\drawable-xxhdpi\ic_menu_revert_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\MK\Documents\GitHub\InterruptionsHelper\app\build\intermediates\res\debug\drawable-xxhdpi\ic_noalarms.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\MK\Documents\GitHub\InterruptionsHelper\app\build\intermediates\res\debug\drawable-xxxhdpi\ic_menu_revert_holo_dark.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\MK\Documents\GitHub\InterruptionsHelper\app\build\intermediates\res\debug\drawable-xxxhdpi\ic_noalarms.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\MK\Documents\GitHub\InterruptionsHelper\app\build\intermediates\res\debug\layout\actionable_toast_row.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\MK\Documents\GitHub\InterruptionsHelper\app\build\intermediates\res\debug\layout\interruptions_clock.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/aapt/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/aapt/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/androidTest/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/androidTest/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/androidTest/debug/com/mk/interruptionshelper/test/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/androidTest/debug/com/mk/interruptionshelper/test/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/mk/interruptionshelper/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/mk/interruptionshelper/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/aidl/android/support/v4/media/MediaMetadataCompat.aidl" afterPath="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/aidl/android/support/v4/media/MediaMetadataCompat.aidl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/aidl/android/support/v4/media/session/MediaSessionCompat.aidl" afterPath="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/aidl/android/support/v4/media/session/MediaSessionCompat.aidl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/aidl/android/support/v4/media/session/ParcelableVolumeInfo.aidl" afterPath="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/aidl/android/support/v4/media/session/ParcelableVolumeInfo.aidl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/aidl/android/support/v4/media/session/PlaybackStateCompat.aidl" afterPath="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/aidl/android/support/v4/media/session/PlaybackStateCompat.aidl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mk/interruptionshelper/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/mk/interruptionshelper/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/aidl/android/support/v4/media/RatingCompat.aidl" afterPath="$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/aidl/android/support/v4/media/RatingCompat.aidl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeAssets/androidTest/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeAssets/androidTest/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/androidTest/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/androidTest/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-v21/values-v21.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-v21/values-v21.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-w820dp/values-w820dp.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-w820dp/values-w820dp.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values/values.xml" />
+>>>>>>> origin/master
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="InterruptionsHelper.iws" />
@@ -42,6 +86,7 @@
     <leaf>
       <file leaf-file-name="floating_action_button.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/floating_action_button.xml">
+<<<<<<< HEAD
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -52,6 +97,8 @@
       </file>
       <file leaf-file-name="InterruptionsHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/InterruptionsHelper.java">
+=======
+>>>>>>> origin/master
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
@@ -60,6 +107,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="interruptions_helper.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/interruptions_helper.xml">
           <provider editor-type-id="android-designer">
@@ -161,6 +209,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="27" column="59" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
+=======
+      <file leaf-file-name="InterruptionsHelper.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/InterruptionsHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.71875">
+              <caret line="65" column="26" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="26" />
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
@@ -1202,7 +1257,11 @@
     </option>
     <option name="modificationStamps">
       <map>
+<<<<<<< HEAD
         <entry key="$PROJECT_DIR$" value="4308209832687" />
+=======
+        <entry key="$PROJECT_DIR$" value="4308002632393" />
+>>>>>>> origin/master
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1457,6 +1516,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/widget/MultiSwipeRefreshLayout.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/interruptions_clock.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/widget/MyScheduleView.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/src/main/res/layout/alarm_interruptions.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/provider/DaysOfWeek.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
@@ -1464,6 +1524,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/provider/InterruptionsAlarm.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/provider/InterruptionsAlarmInstance.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/provider/InterruptionsContract.java" />
+=======
+        <option value="$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/InterruptionsHelper.java" />
+>>>>>>> origin/master
       </list>
     </option>
   </component>
@@ -1499,7 +1562,10 @@
       <sortByType />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="ProjectPane" />
+=======
+>>>>>>> origin/master
       <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
@@ -1522,6 +1588,7 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
+<<<<<<< HEAD
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
@@ -1670,11 +1737,17 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
+=======
+>>>>>>> origin/master
           </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
       <pane id="PackagesPane" />
+<<<<<<< HEAD
+=======
+      <pane id="ProjectPane" />
+>>>>>>> origin/master
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1904,7 +1977,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+=======
+>>>>>>> origin/master
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1923,6 +1999,10 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
+=======
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+>>>>>>> origin/master
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1945,6 +2025,7 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/floating_action_button.xml">
+<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1953,6 +2034,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/InterruptionsHelper.java">
+=======
+>>>>>>> origin/master
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
@@ -1960,6 +2043,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/interruptions_helper.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -2056,6 +2140,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/InterruptionsHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
@@ -2099,6 +2189,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/floating_action_button.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2151,6 +2242,33 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
+=======
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36474696">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
@@ -2162,6 +2280,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/mk/interruptionshelper/InterruptionsHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2247,10 +2366,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5625">
+          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0625">
+          <caret line="2" column="57" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
+>>>>>>> origin/master
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/interruptions_helper.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -2275,13 +2409,25 @@
             <element signature="e#2451#2482#0" expanded="true" />
             <element signature="e#2590#2625#0" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1875">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="-4.56">
           <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
+=======
+        <state vertical-scroll-proportion="1.71875">
+          <caret line="65" column="26" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="26" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
