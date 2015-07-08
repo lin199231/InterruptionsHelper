@@ -44,7 +44,7 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
     /**
      * Default duration for interruptions in minutes.
      */
-    private static final String DEFAULT_DURATION = "60";
+    //private static final String DEFAULT_DURATION = "60";
 
     /**
      * InterruptionsAlarmInstances start with an invalid id when it hasn't been saved to the database.

@@ -43,7 +43,7 @@ public final class R {
         public static final int interruptions_helper=0x7f040000;
     }
     public static final class menu {
-        public static final int menu_interruptions_helper=0x7f0a0000;
+        public static final int settings_menu =0x7f0a0000;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
