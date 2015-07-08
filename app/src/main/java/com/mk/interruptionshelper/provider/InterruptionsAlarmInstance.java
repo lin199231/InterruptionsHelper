@@ -42,6 +42,11 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
     private static final String DEFAULT_ALARM_TIMEOUT_SETTING = "10";
 
     /**
+     * Default duration for interruptions in minutes.
+     */
+    private static final String DEFAULT_DURATION = "60";
+
+    /**
      * InterruptionsAlarmInstances start with an invalid id when it hasn't been saved to the database.
      */
     public static final long INVALID_ID = -1;
@@ -54,6 +59,7 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
             DAY,
             HOUR,
             MINUTES,
+            DURATION,
             LABEL,
             VIBRATE,
             NOTIFICATION,
@@ -71,11 +77,12 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
     private static final int DAY_INDEX = 3;
     private static final int HOUR_INDEX = 4;
     private static final int MINUTES_INDEX = 5;
-    private static final int LABEL_INDEX = 6;
-    private static final int VIBRATE_INDEX = 7;
-    private static final int NOTIFICATION_INDEX = 8;
-    private static final int INTERRUPTION_ID_INDEX = 9;
-    private static final int INTERRUPTION_STATE_INDEX = 10;
+    private static final int DURATION_INDEX = 6;
+    private static final int LABEL_INDEX = 7;
+    private static final int VIBRATE_INDEX = 8;
+    private static final int NOTIFICATION_INDEX = 9;
+    private static final int INTERRUPTION_ID_INDEX = 10;
+    private static final int INTERRUPTION_STATE_INDEX = 11;
 
     private static final int COLUMN_COUNT = INTERRUPTION_STATE_INDEX + 1;
     private Calendar mTimeout;
@@ -91,6 +98,7 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
         values.put(DAY, instance.mDay);
         values.put(HOUR, instance.mHour);
         values.put(MINUTES, instance.mMinute);
+        values.put(DURATION, instance.mDuration);
         values.put(LABEL, instance.mLabel);
         values.put(VIBRATE, instance.mVibrate ? 1 : 0);
         if (instance.mNotification == null) {
@@ -235,6 +243,7 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
     public int mDay;
     public int mHour;
     public int mMinute;
+    public int mDuration;
     public String mLabel;
     public boolean mVibrate;
     public Uri mNotification;
@@ -263,6 +272,7 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
         mDay = c.getInt(DAY_INDEX);
         mHour = c.getInt(HOUR_INDEX);
         mMinute = c.getInt(MINUTES_INDEX);
+        mDuration = c.getInt(DURATION_INDEX);
         mLabel = c.getString(LABEL_INDEX);
         mVibrate = c.getInt(VIBRATE_INDEX) == 1;
         if (c.isNull(NOTIFICATION_INDEX)) {

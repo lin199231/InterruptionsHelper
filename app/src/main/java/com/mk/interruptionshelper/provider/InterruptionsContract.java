@@ -89,6 +89,12 @@ public final class InterruptionsContract {
         public static final String MINUTES = "minutes";
 
         /**
+         * Time of the Interruption remaining
+         * <p>Type: INTEGER</p>
+         */
+        public static final String DURATION="duration";
+
+        /**
          * Days of the week encoded as a bit set.
          * <p>Type: INTEGER</p>
          *
@@ -217,6 +223,12 @@ public final class InterruptionsContract {
          * <p>Type: INTEGER</p>
          */
         public static final String MINUTES = "minutes";
+
+        /**
+         * Time of the Interruption remaining
+         * <p>Type: INTEGER</p>
+         */
+        public static final String DURATION="duration";
 
         /**
          * Foreign key to Interruptions table

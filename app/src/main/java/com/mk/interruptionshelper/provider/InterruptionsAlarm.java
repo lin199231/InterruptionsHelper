@@ -39,6 +39,7 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
             _ID,
             HOUR,
             MINUTES,
+            DURATION,
             DAYS_OF_WEEK,
             ENABLED,
             VIBRATE,
@@ -54,12 +55,13 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
     private static final int ID_INDEX = 0;
     private static final int HOUR_INDEX = 1;
     private static final int MINUTES_INDEX = 2;
-    private static final int DAYS_OF_WEEK_INDEX = 3;
-    private static final int ENABLED_INDEX = 4;
-    private static final int VIBRATE_INDEX = 5;
-    private static final int LABEL_INDEX = 6;
-    private static final int NOTIFICATION_INDEX = 7;
-    private static final int DELETE_AFTER_USE_INDEX = 8;
+    private static final int DURATION_INDEX = 3;
+    private static final int DAYS_OF_WEEK_INDEX = 4;
+    private static final int ENABLED_INDEX = 5;
+    private static final int VIBRATE_INDEX = 6;
+    private static final int LABEL_INDEX = 7;
+    private static final int NOTIFICATION_INDEX = 8;
+    private static final int DELETE_AFTER_USE_INDEX = 9;
 
     private static final int COLUMN_COUNT = DELETE_AFTER_USE_INDEX + 1;
 
@@ -75,6 +77,7 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
         values.put(ENABLED, interruption.enabled ? 1 : 0);
         values.put(HOUR, interruption.hour);
         values.put(MINUTES, interruption.minutes);
+        values.put(DURATION, interruption.duration);
         values.put(DAYS_OF_WEEK, interruption.daysOfWeek.getBitSet());
         values.put(VIBRATE, interruption.vibrate ? 1 : 0);
         values.put(LABEL, interruption.label);
@@ -211,6 +214,7 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
     public boolean enabled;
     public int hour;
     public int minutes;
+    public int duration;
     public DaysOfWeek daysOfWeek;
     public boolean vibrate;
     public String label;
@@ -240,6 +244,7 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
         enabled = c.getInt(ENABLED_INDEX) == 1;
         hour = c.getInt(HOUR_INDEX);
         minutes = c.getInt(MINUTES_INDEX);
+        duration = c.getInt(DURATION_INDEX);
         daysOfWeek = new DaysOfWeek(c.getInt(DAYS_OF_WEEK_INDEX));
         vibrate = c.getInt(VIBRATE_INDEX) == 1;
         label = c.getString(LABEL_INDEX);
@@ -339,6 +344,7 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
                 ", enabled=" + enabled +
                 ", hour=" + hour +
                 ", minutes=" + minutes +
+                ", duration=" + duration +
                 ", daysOfWeek=" + daysOfWeek +
                 ", vibrate=" + vibrate +
                 ", label='" + label + '\'' +
