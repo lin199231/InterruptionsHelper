@@ -4,6 +4,12 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+
+    <!-- Menu item on most screens to get to more settings -->
+    <string name="menu_item_settings">Settings</string>
+    <!-- Menu item on most screens to get to the help information -->
+    <string name="menu_item_help">Help</string>
+
     <!-- Default label to display for an InterruptionsAlarm -->
     <string name="default_label">InterruptionsAlarm</string>
 
@@ -27,7 +33,7 @@
     <string name="settings">Settings</string>
 
     <!-- Setting title for changing the snooze duration. -->
-    <string name="snooze_duration_title">Snooze length</string>
+    <string name="interruption_duration_title">Interruption length</string>
 
     <plurals name="snooze_duration">
         <!-- Duration for one minute -->
@@ -299,7 +305,7 @@
     </string-array>
 
     <!-- Header in the preferences settings for the section pertaining to alarms -->
-    <string name="alarm_settings">Alarms</string>
+    <string name="interruption_settings">Interruptions</string>
     <string name="desk_clock_help_url" translatable="false"></string>
     <!-- Describes the running service for the stopwatch -->
     <string name="stopwatch_service_desc">Stopwatch service to run the notification.</string>

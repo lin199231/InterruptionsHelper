@@ -31,7 +31,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/alarm_settings">
+        android:title="@string/interruption_settings">
         <ListPreference
             android:key="auto_silence"
             android:title="@string/auto_silence_title"
@@ -40,13 +40,13 @@
             android:defaultValue="10"
             android:dialogTitle="@string/auto_silence_title" />
 
-       <com.android.deskclock.SnoozeLengthDialog
-            android:key="snooze_duration"
-            android:title="@string/snooze_duration_title"
-            android:defaultValue="10"/>
+       <com.mk.interruptionshelper.InterruptionLengthDialog
+            android:key="interruption_duration"
+            android:title="@string/interruption_duration_title"
+            android:defaultValue="60"/>
 
        <!-- M: we override volume preference -->
-        <com.android.deskclock.RingerVolumePreference
+        <com.mk.interruptionshelper.RingerVolumePreference
             android:key="volume_setting"
             android:title="@string/alarm_volume_title"
             android:dialogTitle="@string/alarm_volume_title"

@@ -104,7 +104,7 @@ public class Utils {
         return Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR2;
     }
 
-/*
+
     public static void prepareHelpMenuItem(Context context, MenuItem helpMenuItem) {
         String helpUrlString = context.getResources().getString(R.string.desk_clock_help_url);
         if (TextUtils.isEmpty(helpUrlString)) {
@@ -127,7 +127,7 @@ public class Utils {
         helpMenuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         helpMenuItem.setVisible(true);
     }
-*/
+
     /**
      * Adds two query parameters into the Uri, namely the language code and the version code
      * of the application's package as gotten via the context.
@@ -180,8 +180,6 @@ public class Utils {
      * Uses {@link Utils#calculateRadiusOffset(float, float, float)} after fetching the values
      * from the resources just as {@link CircleTimerView#init(android.content.Context)} does.
      */
-
-    /*
     public static float calculateRadiusOffset(Resources resources) {
         if (resources != null) {
             float strokeSize = resources.getDimension(R.dimen.circletimer_circle_size);
@@ -192,7 +190,7 @@ public class Utils {
             return 0f;
         }
     }
-    */
+
     /**  The pressed color used throughout the app. If this method is changed, it will not have
      *   any effect on the button press states, and those must be changed separately.
      **/
@@ -207,6 +205,64 @@ public class Utils {
         return R.color.clock_gray;
     }
 
+    /**
+     * Clears the persistent data of stopwatch (start time, state, laps, etc...).
+     */
+    public static void clearSwSharedPref(SharedPreferences prefs) {
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.remove(Stopwatches.PREF_START_TIME);
+        editor.remove(Stopwatches.PREF_ACCUM_TIME);
+        editor.remove(Stopwatches.PREF_STATE);
+        int lapNum = prefs.getInt(Stopwatches.PREF_LAP_NUM, Stopwatches.STOPWATCH_RESET);
+        for (int i = 0; i < lapNum; i++) {
+            ///M: the index should match the number of lap @{
+            String key = Stopwatches.PREF_LAP_TIME + Integer.toString(i + 1);
+            ///@}
+            editor.remove(key);
+        }
+        editor.remove(Stopwatches.PREF_LAP_NUM);
+        /// M: clear all the data of Stop watch
+        String key = "sw";
+        editor.remove(key + CircleTimerView.PREF_CTV_PAUSED);
+        editor.remove(key + CircleTimerView.PREF_CTV_INTERVAL);
+        editor.remove(key + CircleTimerView.PREF_CTV_INTERVAL_START);
+        editor.remove(key + CircleTimerView.PREF_CTV_CURRENT_INTERVAL);
+        editor.remove(key + CircleTimerView.PREF_CTV_ACCUM_TIME);
+        editor.remove(key + CircleTimerView.PREF_CTV_MARKER_TIME);
+        editor.remove(key + CircleTimerView.PREF_CTV_TIMER_MODE);
+        editor.remove(Stopwatches.NOTIF_CLOCK_BASE);
+        editor.remove(Stopwatches.NOTIF_CLOCK_RUNNING);
+        editor.remove(Stopwatches.NOTIF_CLOCK_ELAPSED);
+        /// @}
+        editor.apply();
+    }
+
+    /**
+     * Broadcast a message to show the in-use timers in the notifications
+     */
+    public static void showInUseNotifications(Context context) {
+        Intent timerIntent = new Intent();
+        timerIntent.setAction(Timers.NOTIF_IN_USE_SHOW);
+        context.sendBroadcast(timerIntent);
+    }
+
+    /**
+     * Broadcast a message to show the in-use timers in the notifications
+     */
+    public static void showTimesUpNotifications(Context context) {
+        Intent timerIntent = new Intent();
+        timerIntent.setAction(Timers.NOTIF_TIMES_UP_SHOW);
+        context.sendBroadcast(timerIntent);
+    }
+
+    /**
+     * Broadcast a message to cancel the in-use timers in the notifications
+     */
+    public static void cancelTimesUpNotifications(Context context) {
+        Intent timerIntent = new Intent();
+        timerIntent.setAction(Timers.NOTIF_TIMES_UP_CANCEL);
+        context.sendBroadcast(timerIntent);
+    }
 
     /** Runnable for use with screensaver and dream, to move the clock every minute.
      *  registerViews() must be called prior to posting.
@@ -390,6 +446,40 @@ public class Utils {
         handler.removeCallbacks(runnable);
     }
 
+    /**
+     * For screensavers to set whether the digital or analog clock should be displayed.
+     * Returns the view to be displayed.
+     */
+    public static View setClockStyle(Context context, View digitalClock, View analogClock,
+                                     String clockStyleKey) {
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
+        String defaultClockStyle = context.getResources().getString(R.string.default_clock_style);
+        String style = sharedPref.getString(clockStyleKey, defaultClockStyle);
+        View returnView;
+        if (style.equals(CLOCK_TYPE_ANALOG)) {
+            digitalClock.setVisibility(View.GONE);
+            analogClock.setVisibility(View.VISIBLE);
+            returnView = analogClock;
+        } else {
+            digitalClock.setVisibility(View.VISIBLE);
+            analogClock.setVisibility(View.GONE);
+            returnView = digitalClock;
+        }
+
+        return returnView;
+    }
+
+    /**
+     * For screensavers to dim the lights if necessary.
+     */
+    public static void dimClockView(boolean dim, View clockView) {
+        Paint paint = new Paint();
+        paint.setColor(Color.WHITE);
+        paint.setColorFilter(new PorterDuffColorFilter(
+                (dim ? 0x40FFFFFF : 0xC0FFFFFF),
+                PorterDuff.Mode.MULTIPLY));
+        clockView.setLayerType(View.LAYER_TYPE_HARDWARE, paint);
+    }
 
     /**
      * @return The next alarm from {@link AlarmManager}
@@ -402,13 +492,12 @@ public class Utils {
             final long triggerTime = info.getTriggerTime();
             final Calendar alarmTime = Calendar.getInstance();
             alarmTime.setTimeInMillis(triggerTime);
-            //timeString = AlarmUtils.getFormattedTime(context, alarmTime);
+            timeString = AlarmUtils.getFormattedTime(context, alarmTime);
         }
         return timeString;
     }
 
     /** Clock views can call this to refresh their alarm to the next upcoming value. **/
-    /*
     public static void refreshAlarm(Context context, View clock) {
         final String nextAlarm = getNextAlarm(context);
         TextView nextAlarmView;
@@ -423,10 +512,8 @@ public class Utils {
             nextAlarmView.setVisibility(View.GONE);
         }
     }
-    */
 
     /** Clock views can call this to refresh their date. **/
-    /*
     public static void updateDate(
             String dateFormat, String dateFormatForAccessibility, View clock) {
 
@@ -444,7 +531,6 @@ public class Utils {
             dateDisplay.setContentDescription(sdf.format(now));
         }
     }
-    */
 
     /***
      * Formats the time in the TextClock according to the Locale with a special
