@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.text.format.DateUtils;
+import android.widget.ImageButton;
 
 public class InterruptionsHelper extends Activity {
 
@@ -17,6 +18,9 @@ public class InterruptionsHelper extends Activity {
     private static final int UNKNOWN_COLOR_ID = 0;
 
     private Handler mHander;
+    private ImageButton mFab;
+    private ImageButton mLeftButton;
+    private ImageButton mRightButton;
     private int mLastHourColor = UNKNOWN_COLOR_ID;
     private final Runnable mBackgroundColorChanger = new Runnable() {
         @Override
@@ -71,5 +75,17 @@ public class InterruptionsHelper extends Activity {
             animator.start();
             mLastHourColor = currHourColor;
         }
+    }
+
+    public ImageButton getFab() {
+        return mFab;
+    }
+
+    public ImageButton getLeftButton() {
+        return mLeftButton;
+    }
+
+    public ImageButton getRightButton() {
+        return mRightButton;
     }
 }
