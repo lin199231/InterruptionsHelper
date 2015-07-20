@@ -179,7 +179,7 @@ public class Utils {
     /**
      * Uses {@link Utils#calculateRadiusOffset(float, float, float)} after fetching the values
      * from the resources just as {@link CircleTimerView#init(android.content.Context)} does.
-     */
+
     public static float calculateRadiusOffset(Resources resources) {
         if (resources != null) {
             float strokeSize = resources.getDimension(R.dimen.circletimer_circle_size);
@@ -190,6 +190,7 @@ public class Utils {
             return 0f;
         }
     }
+     */
 
     /**  The pressed color used throughout the app. If this method is changed, it will not have
      *   any effect on the button press states, and those must be changed separately.
@@ -207,7 +208,7 @@ public class Utils {
 
     /**
      * Clears the persistent data of stopwatch (start time, state, laps, etc...).
-     */
+
     public static void clearSwSharedPref(SharedPreferences prefs) {
         SharedPreferences.Editor editor = prefs.edit();
         editor.remove(Stopwatches.PREF_START_TIME);
@@ -236,6 +237,7 @@ public class Utils {
         /// @}
         editor.apply();
     }
+     */
 
     /**
      * Broadcast a message to show the in-use timers in the notifications
