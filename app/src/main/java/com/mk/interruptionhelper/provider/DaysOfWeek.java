@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.mk.interruptionshelper.provider;
+package com.mk.interruptionhelper.provider;
 
 import android.content.Context;
 
@@ -160,11 +160,11 @@ public final class DaysOfWeek {
     }
 
     /**
-     * Returns number of days from today until next alarm.
+     * Returns number of days from today until next interruption.
      *
      * @param current must be set to today
      */
-    public int calculateDaysToNextAlarm(Calendar current) {
+    public int calculateDaysToNextInterruption(Calendar current) {
         if (!isRepeating()) {
             return -1;
         }
@@ -172,8 +172,8 @@ public final class DaysOfWeek {
         int dayCount = 0;
         int currentDayBit = convertDayToBitIndex(current.get(Calendar.DAY_OF_WEEK));
         for (; dayCount < DAYS_IN_A_WEEK; dayCount++) {
-            int nextAlarmBit = (currentDayBit + dayCount) % DAYS_IN_A_WEEK;
-            if (isBitEnabled(nextAlarmBit)) {
+            int nextInterruptionBit = (currentDayBit + dayCount) % DAYS_IN_A_WEEK;
+            if (isBitEnabled(nextInterruptionBit)) {
                 break;
             }
         }

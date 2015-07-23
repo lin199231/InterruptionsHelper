@@ -13,8 +13,10 @@
 -->
 
 <PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/settings">
+    xmlns:android="http://schemas.android.com/apk/res/android" android:title="Settings">
+    <!--android:title="@string/settings">-->
+
+    <!--
     <PreferenceCategory
         android:title="@string/clock_settings">
         <CheckBoxPreference
@@ -44,15 +46,14 @@
             android:key="interruption_duration"
             android:title="@string/interruption_duration_title"
             android:defaultValue="60"/>
-
-       <!-- M: we override volume preference -->
+       -->
+       <!-- M: we override volume preference
         <com.mk.interruptionshelper.RingerVolumePreference
             android:key="volume_setting"
             android:title="@string/alarm_volume_title"
             android:dialogTitle="@string/alarm_volume_title"
             android:streamType="alarm"
             android:persistent="false" />
-
         <ListPreference
             android:key="volume_button_setting"
             android:title="@string/volume_button_setting_title"
@@ -61,4 +62,5 @@
             android:entryValues="@array/volume_button_setting_values"
             android:defaultValue="0" />
     </PreferenceCategory>
+    -->
 </PreferenceScreen>

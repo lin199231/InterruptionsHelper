@@ -1,4 +1,4 @@
-package com.mk.interruptionshelper.provider;
+package com.mk.interruptionhelper.provider;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -10,8 +10,8 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 
-import com.mk.interruptionshelper.LogUtils;
-import com.mk.interruptionshelper.R;
+import com.mk.interruptionhelper.LogUtils;
+import com.mk.interruptionhelper.SettingFragment;
 
 import java.util.Calendar;
 import java.util.LinkedList;
@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Created by MK on 2015/7/8.
  */
-public class InterruptionsAlarmInstance implements InterruptionsContract.InstancesColumns {
+public class InterruptionInstance implements InterruptionContract.InstancesColumns {
     /**
      * Offset from interruption time to show low priority notification
      */
@@ -47,11 +47,11 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
     //private static final String DEFAULT_DURATION = "60";
 
     /**
-     * InterruptionsAlarmInstances start with an invalid id when it hasn't been saved to the database.
+     * InterruptionInstances start with an invalid id when it hasn't been saved to the database.
      */
     public static final long INVALID_ID = -1;
 
-    //InterruptionsAlarmInstances的字段
+    //InterruptionInstances的字段
     private static final String[] QUERY_COLUMNS = {
             _ID,
             YEAR,
@@ -87,7 +87,7 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
     private static final int COLUMN_COUNT = INTERRUPTION_STATE_INDEX + 1;
     private Calendar mTimeout;
 
-    public static ContentValues createContentValues(InterruptionsAlarmInstance instance) {
+    public static ContentValues createContentValues(InterruptionInstance instance) {
         ContentValues values = new ContentValues(COLUMN_COUNT);
         if (instance.mId != INVALID_ID) {
             values.put(_ID, instance.mId);
@@ -136,16 +136,16 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
      * @param instanceId for the desired instance.
      * @return instance if found, null otherwise
      */
-    public static InterruptionsAlarmInstance getInstance(ContentResolver contentResolver, long instanceId) {
+    public static InterruptionInstance getInstance(ContentResolver contentResolver, long instanceId) {
         Cursor cursor = contentResolver.query(getUri(instanceId), QUERY_COLUMNS, null, null, null);
-        InterruptionsAlarmInstance result = null;
+        InterruptionInstance result = null;
         if (cursor == null) {
             return result;
         }
 
         try {
             if (cursor.moveToFirst()) {
-                result = new InterruptionsAlarmInstance(cursor);
+                result = new InterruptionInstance(cursor);
             }
         } finally {
             cursor.close();
@@ -161,7 +161,7 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
      * @param interruptionId of instances desired.
      * @return list of interruptions instances that are owned by interruptionmId.
      */
-    public static List<InterruptionsAlarmInstance> getInstancesByInterruptionId(ContentResolver contentResolver,
+    public static List<InterruptionInstance> getInstancesByInterruptionId(ContentResolver contentResolver,
                                                             long interruptionId) {
         return getInstances(contentResolver, INTERRUPTION_ID + "=" + interruptionId);
     }
@@ -178,11 +178,11 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
      *         appear in the selection. The values will be bound as Strings.
      * @return list of interruptions matching where clause or empty list if none found.
      */
-    public static List<InterruptionsAlarmInstance> getInstances(ContentResolver contentResolver,
+    public static List<InterruptionInstance> getInstances(ContentResolver contentResolver,
                                                    String selection, String ... selectionArgs) {
         Cursor cursor  = contentResolver.query(CONTENT_URI, QUERY_COLUMNS,
                 selection, selectionArgs, null);
-        List<InterruptionsAlarmInstance> result = new LinkedList<InterruptionsAlarmInstance>();
+        List<InterruptionInstance> result = new LinkedList<InterruptionInstance>();
         if (cursor == null) {
             return result;
         }
@@ -190,7 +190,7 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
         try {
             if (cursor.moveToFirst()) {
                 do {
-                    result.add(new InterruptionsAlarmInstance(cursor));
+                    result.add(new InterruptionInstance(cursor));
                 } while (cursor.moveToNext());
             }
         } finally {
@@ -200,13 +200,13 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
         return result;
     }
 
-    public static InterruptionsAlarmInstance addInstance(ContentResolver contentResolver,
-                                                         InterruptionsAlarmInstance instance) {
+    public static InterruptionInstance addInstance(ContentResolver contentResolver,
+                                                         InterruptionInstance instance) {
         // Make sure we are not adding a duplicate instances. This is not a
         // fix and should never happen. This is only a safe guard against bad code, and you
         // should fix the root issue if you see the error message.
-        String dupSelector = InterruptionsAlarmInstance.INTERRUPTION_ID + " = " + instance.mInterruptionId;
-        for (InterruptionsAlarmInstance otherInstances : getInstances(contentResolver, dupSelector)) {
+        String dupSelector = INTERRUPTION_ID + " = " + instance.mInterruptionId;
+        for (InterruptionInstance otherInstances : getInstances(contentResolver, dupSelector)) {
             if (otherInstances.getInterruptionTime().equals(instance.getInterruptionTime())) {
                 LogUtils.i("Detected duplicate instance in DB. Updating " + otherInstances + " to "
                         + instance);
@@ -223,7 +223,7 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
         return instance;
     }
 
-    public static boolean updateInstance(ContentResolver contentResolver, InterruptionsAlarmInstance instance) {
+    public static boolean updateInstance(ContentResolver contentResolver, InterruptionInstance instance) {
         if (instance.mId == INVALID_ID) return false;
         ContentValues values = createContentValues(instance);
         long rowsUpdated = contentResolver.update(getUri(instance.mId), values, null, null);
@@ -250,13 +250,13 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
     public Long mInterruptionId;
     public int mInterruptionState;
 
-    //InterruptionsAlarmInstance构造函数
-    public InterruptionsAlarmInstance(Calendar calendar, Long interrupitonId) {
+    //InterruptionInstance构造函数
+    public InterruptionInstance(Calendar calendar, Long interrupitonId) {
         this(calendar);
         mInterruptionId = interrupitonId;
     }
 
-    public InterruptionsAlarmInstance(Calendar calendar) {
+    public InterruptionInstance(Calendar calendar) {
         mId = INVALID_ID;
         setInterruptionTime(calendar);
         mLabel = "";
@@ -265,7 +265,7 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
         mInterruptionState = SILENT_STATE;
     }
 
-    public InterruptionsAlarmInstance(Cursor c) {
+    public InterruptionInstance(Cursor c) {
         mId = c.getLong(ID_INDEX);
         mYear = c.getInt(YEAR_INDEX);
         mMonth = c.getInt(MONTH_INDEX);
@@ -290,7 +290,8 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
     }
 
     public String getLabelOrDefault(Context context) {
-        return mLabel.isEmpty() ? context.getString(R.string.default_label) : mLabel;
+        //return mLabel.isEmpty() ? context.getString(R.string.default_label) : mLabel;
+        return null;
     }
 
     /**
@@ -364,7 +365,7 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
      */
     public Calendar getTimeout(Context context) {
         String timeoutSetting = PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(SettingsActivity.KEY_AUTO_SILENCE, DEFAULT_ALARM_TIMEOUT_SETTING);
+                .getString(SettingFragment.KEY_AUTO_SILENCE, DEFAULT_ALARM_TIMEOUT_SETTING);
         int timeoutMinutes = Integer.parseInt(timeoutSetting);
 
         // Interruption silence has been set to "None"
@@ -379,8 +380,8 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof InterruptionsAlarmInstance)) return false;
-        final InterruptionsAlarmInstance other = (InterruptionsAlarmInstance) o;
+        if (!(o instanceof InterruptionInstance)) return false;
+        final InterruptionInstance other = (InterruptionInstance) o;
         return mId == other.mId;
     }
 
