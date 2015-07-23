@@ -12,6 +12,8 @@ import android.preference.PreferenceManager;
 
 import com.mk.interruptionshelper.LogUtils;
 import com.mk.interruptionshelper.R;
+import com.mk.interruptionshelper.SettingsActivity;
+import com.mk.interruptionshelper.SettingsFragment;
 
 import java.util.Calendar;
 import java.util.LinkedList;
@@ -364,7 +366,7 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
      */
     public Calendar getTimeout(Context context) {
         String timeoutSetting = PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(SettingsActivity.KEY_AUTO_SILENCE, DEFAULT_ALARM_TIMEOUT_SETTING);
+                .getString(SettingsFragment.KEY_AUTO_SILENCE, DEFAULT_ALARM_TIMEOUT_SETTING);
         int timeoutMinutes = Integer.parseInt(timeoutSetting);
 
         // Interruption silence has been set to "None"

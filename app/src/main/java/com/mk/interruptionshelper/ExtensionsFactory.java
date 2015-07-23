@@ -74,7 +74,7 @@ public class ExtensionsFactory {
                 Log.d(TAG, DESKCLOCKEXTENSIONS_KEY + " not found in properties file.");
             }
         }
-
+        /*
         if (sInterruptionsHelperExtensions == null) {
             sInterruptionsHelperExtensions = new sInterruptionsHelperExtensions() {
                 @Override
@@ -92,6 +92,7 @@ public class ExtensionsFactory {
                 }
             };
         }
+        */
         return sInterruptionsHelperExtensions;
     }
 }

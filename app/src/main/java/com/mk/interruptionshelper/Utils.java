@@ -241,30 +241,32 @@ public class Utils {
 
     /**
      * Broadcast a message to show the in-use timers in the notifications
-     */
+
     public static void showInUseNotifications(Context context) {
         Intent timerIntent = new Intent();
         timerIntent.setAction(Timers.NOTIF_IN_USE_SHOW);
         context.sendBroadcast(timerIntent);
     }
+     */
 
     /**
      * Broadcast a message to show the in-use timers in the notifications
-     */
+
     public static void showTimesUpNotifications(Context context) {
         Intent timerIntent = new Intent();
         timerIntent.setAction(Timers.NOTIF_TIMES_UP_SHOW);
         context.sendBroadcast(timerIntent);
     }
+     */
 
     /**
      * Broadcast a message to cancel the in-use timers in the notifications
-     */
     public static void cancelTimesUpNotifications(Context context) {
         Intent timerIntent = new Intent();
         timerIntent.setAction(Timers.NOTIF_TIMES_UP_CANCEL);
         context.sendBroadcast(timerIntent);
     }
+    */
 
     /** Runnable for use with screensaver and dream, to move the clock every minute.
      *  registerViews() must be called prior to posting.
@@ -455,9 +457,10 @@ public class Utils {
     public static View setClockStyle(Context context, View digitalClock, View analogClock,
                                      String clockStyleKey) {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
-        String defaultClockStyle = context.getResources().getString(R.string.default_clock_style);
-        String style = sharedPref.getString(clockStyleKey, defaultClockStyle);
+        //String defaultClockStyle = context.getResources().getString(R.string.default_clock_style);
+        //String style = sharedPref.getString(clockStyleKey, defaultClockStyle);
         View returnView;
+        /*
         if (style.equals(CLOCK_TYPE_ANALOG)) {
             digitalClock.setVisibility(View.GONE);
             analogClock.setVisibility(View.VISIBLE);
@@ -467,8 +470,9 @@ public class Utils {
             analogClock.setVisibility(View.GONE);
             returnView = digitalClock;
         }
-
-        return returnView;
+        */
+        //return returnView;
+        return null;
     }
 
     /**
@@ -494,12 +498,13 @@ public class Utils {
             final long triggerTime = info.getTriggerTime();
             final Calendar alarmTime = Calendar.getInstance();
             alarmTime.setTimeInMillis(triggerTime);
-            timeString = AlarmUtils.getFormattedTime(context, alarmTime);
+            //timeString = AlarmUtils.getFormattedTime(context, alarmTime);
         }
         return timeString;
     }
 
     /** Clock views can call this to refresh their alarm to the next upcoming value. **/
+    /*
     public static void refreshAlarm(Context context, View clock) {
         final String nextAlarm = getNextAlarm(context);
         TextView nextAlarmView;
@@ -514,6 +519,7 @@ public class Utils {
             nextAlarmView.setVisibility(View.GONE);
         }
     }
+    */
 
     /** Clock views can call this to refresh their date. **/
     public static void updateDate(

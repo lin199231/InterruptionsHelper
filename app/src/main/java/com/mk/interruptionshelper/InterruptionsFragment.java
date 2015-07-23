@@ -13,7 +13,7 @@ import com.mk.interruptionshelper.provider.InterruptionsAlarm;
 /**
  * Created by dhdev_000 on 2015/7/21.
  */
-public class InterruptionsFragment extends InterruptionsHelperFragment implements View.OnTouchListener{
+public class InterruptionsFragment extends InterruptionsHelperFragment {
     private static final float EXPAND_DECELERATION = 1f;
     private static final float COLLAPSE_DECELERATION = 0.7f;
 
@@ -48,12 +48,12 @@ public class InterruptionsFragment extends InterruptionsHelperFragment implement
 
     private FrameLayout mMainLayout;
     private ListView mAlarmsList;
-    private AlarmItemAdapter mAdapter;
+    //private AlarmItemAdapter mAdapter;
     private View mEmptyView;
     private View mFooterView;
 
     private Bundle mRingtoneTitleCache; // Key: ringtone uri, value: ringtone title
-    private ActionableToastBar mUndoBar;
+    //private ActionableToastBar mUndoBar;
     private View mUndoFrame;
 
     private InterruptionsAlarm mSelectedAlarm;
