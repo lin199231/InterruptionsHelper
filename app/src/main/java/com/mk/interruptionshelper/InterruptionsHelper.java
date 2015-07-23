@@ -51,10 +51,11 @@ public class InterruptionsHelper extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        /*
         if (id == R.id.action_settings) {
             return true;
         }
-
+        */
         return super.onOptionsItemSelected(item);
     }
 
@@ -66,6 +67,7 @@ public class InterruptionsHelper extends Activity {
         } else {
             duration = getResources().getInteger(android.R.integer.config_longAnimTime);
         }
+        /*
         final int currHourColor = Utils.getCurrentHourColor();
         if (mLastHourColor != currHourColor) {
             final ObjectAnimator animator = ObjectAnimator.ofInt(getWindow().getDecorView(),
@@ -75,6 +77,7 @@ public class InterruptionsHelper extends Activity {
             animator.start();
             mLastHourColor = currHourColor;
         }
+         */
     }
 
     public ImageButton getFab() {

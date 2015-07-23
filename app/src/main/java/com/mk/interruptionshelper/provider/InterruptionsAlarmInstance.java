@@ -12,6 +12,7 @@ import android.preference.PreferenceManager;
 
 import com.mk.interruptionshelper.LogUtils;
 import com.mk.interruptionshelper.R;
+import com.mk.interruptionshelper.SettingFragment;
 
 import java.util.Calendar;
 import java.util.LinkedList;
@@ -290,7 +291,8 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
     }
 
     public String getLabelOrDefault(Context context) {
-        return mLabel.isEmpty() ? context.getString(R.string.default_label) : mLabel;
+        //return mLabel.isEmpty() ? context.getString(R.string.default_label) : mLabel;
+        return null;
     }
 
     /**
@@ -364,7 +366,7 @@ public class InterruptionsAlarmInstance implements InterruptionsContract.Instanc
      */
     public Calendar getTimeout(Context context) {
         String timeoutSetting = PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(SettingsActivity.KEY_AUTO_SILENCE, DEFAULT_ALARM_TIMEOUT_SETTING);
+                .getString(SettingFragment.KEY_AUTO_SILENCE, DEFAULT_ALARM_TIMEOUT_SETTING);
         int timeoutMinutes = Integer.parseInt(timeoutSetting);
 
         // Interruption silence has been set to "None"
