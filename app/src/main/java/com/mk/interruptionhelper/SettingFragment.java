@@ -1,4 +1,4 @@
-package com.mk.interruptionshelper;
+package com.mk.interruptionhelper;
 
 import android.media.AudioManager;
 import android.preference.PreferenceFragment;

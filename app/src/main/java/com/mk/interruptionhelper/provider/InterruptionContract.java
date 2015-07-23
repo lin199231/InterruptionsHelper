@@ -1,4 +1,4 @@
-package com.mk.interruptionshelper.provider;
+package com.mk.interruptionhelper.provider;
 
 import android.provider.BaseColumns;
 import android.net.Uri;
@@ -17,22 +17,22 @@ import android.net.Uri;
  * The {CitiesColumns} table holds all user selectable cities
  */
 
-public final class InterruptionsContract {
+public final class InterruptionContract {
     /**
-     * This authority is used for writing to or querying from the interruptions helper
+     * This authority is used for writing to or querying from the Interruption helper
      * provider.
      */
-    public static final String AUTHORITY = "com.android.interruptionshelper";
+    public static final String AUTHORITY = "com.android.Interruptionhelper";
 
     /**
      * This utility class cannot be instantiated
      */
-    private InterruptionsContract() {}
+    private InterruptionContract() {}
 
     /**
-     * Constants for tables with InterruptionsSettings.
+     * Constants for tables with InterruptionSettings.
      */
-    private interface InterruptionsSettingColumns extends BaseColumns {
+    private interface InterruptionSettingColumns extends BaseColumns {
         /**
          * This string is used to indicate no notification.
          */
@@ -44,20 +44,20 @@ public final class InterruptionsContract {
         public static final String NO_NOTIFICATION = NO_NOTIFICATION_URI.toString();
 
         /**
-         * True if interruptions remind should vibrate
+         * True if Interruption remind should vibrate
          * <p>Type: BOOLEAN</p>
          */
         public static final String VIBRATE = "vibrate";
 
         /**
-         * interruptions label.
+         * Interruption label.
          *
          * <p>Type: STRING</p>
          */
         public static final String LABEL = "label";
 
         /**
-         * Audio alert to play when interruptions triggers. Null entry
+         * Audio alert to play when Interruption triggers. Null entry
          * means use system default and entry that equal
          * Uri.EMPTY.toString() means no notification.
          *
@@ -68,13 +68,13 @@ public final class InterruptionsContract {
     }
 
     /**
-     * Constants for the Interruptions table, which contains the user created Interruptions.
+     * Constants for the Interruption table, which contains the user created Interruption.
      */
-    protected interface InterruptionsColumns extends InterruptionsSettingColumns, BaseColumns {
+    protected interface InterruptionsColumns extends InterruptionSettingColumns, BaseColumns {
         /**
          * The content:// style URL for this table.
          */
-        public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/Interruptions");
+        public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/Interruption");
 
         /**
          * Hour in 24-hour localtime 0 - 23.
@@ -109,23 +109,23 @@ public final class InterruptionsContract {
         public static final String ENABLED = "enabled";
 
         /**
-         * Determine if interruptions is deleted after it has been used.
+         * Determine if Interruption is deleted after it has been used.
          * <p>Type: INTEGER</p>
          */
         public static final String DELETE_AFTER_USE = "delete_after_use";
     }
 
     /**
-     * Constants for the Instance table, which contains the state of each interruptions.
+     * Constants for the Instance table, which contains the state of each Interruption.
      */
-    protected interface InstancesColumns extends InterruptionsSettingColumns, BaseColumns {
+    protected interface InstancesColumns extends InterruptionSettingColumns, BaseColumns {
         /**
          * The content:// style URL for this table.
          */
         public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/instances");
 
         /**
-         * Interruptions state when to show no notification.
+         * Interruption state when to show no notification.
          *
          * Can transitions to:
          * LOW_NOTIFICATION_STATE
@@ -133,7 +133,7 @@ public final class InterruptionsContract {
         public static final int SILENT_STATE = 0;
 
         /**
-         * Interruptions state to show low priority interruptions notification.
+         * Interruption state to show low priority Interruption notification.
          *
          * Can transitions to:
          * HIDE_NOTIFICATION_STATE
@@ -143,7 +143,7 @@ public final class InterruptionsContract {
         public static final int LOW_NOTIFICATION_STATE = 1;
 
         /**
-         * Interruptions state to hide low priority interruptions notification.
+         * Interruption state to hide low priority Interruption notification.
          *
          * Can transitions to:
          * HIGH_NOTIFICATION_STATE
@@ -151,7 +151,7 @@ public final class InterruptionsContract {
         public static final int HIDE_NOTIFICATION_STATE = 2;
 
         /**
-         * Interruptions state to show high priority interruptions notification.
+         * Interruption state to show high priority Interruption notification.
          *
          * Can transitions to:
          * DISMISSED_STATE
@@ -160,7 +160,7 @@ public final class InterruptionsContract {
         public static final int HIGH_NOTIFICATION_STATE = 3;
 
         /**
-         * Interruptions state when interruptions is in snooze.
+         * Interruption state when Interruption is in snooze.
          *
          * Can transitions to:
          * DISMISSED_STATE
@@ -169,7 +169,7 @@ public final class InterruptionsContract {
         public static final int SNOOZE_STATE = 4;
 
         /**
-         * Interruptions state when interruptions is being fired.
+         * Interruption state when Interruption is being fired.
          *
          * Can transitions to:
          * DISMISSED_STATE
@@ -179,7 +179,7 @@ public final class InterruptionsContract {
         public static final int FIRED_STATE = 5;
 
         /**
-         * Interruptions state when interruptions has been missed.
+         * Interruption state when Interruption has been missed.
          *
          * Can transitions to:
          * DISMISSED_STATE
@@ -187,39 +187,39 @@ public final class InterruptionsContract {
         public static final int MISSED_STATE = 6;
 
         /**
-         * Interruptions state when interruptions is done.
+         * Interruption state when Interruption is done.
          */
         public static final int DISMISSED_STATE = 7;
 
         /**
-         * Interruptions year.
+         * Interruption year.
          *
          * <p>Type: INTEGER</p>
          */
         public static final String YEAR = "year";
 
         /**
-         * Interruptions month in year.
+         * Interruption month in year.
          *
          * <p>Type: INTEGER</p>
          */
         public static final String MONTH = "month";
 
         /**
-         * Interruptions day in month.
+         * Interruption day in month.
          *
          * <p>Type: INTEGER</p>
          */
         public static final String DAY = "day";
 
         /**
-         * Interruptions hour in 24-hour localtime 0 - 23.
+         * Interruption hour in 24-hour localtime 0 - 23.
          * <p>Type: INTEGER</p>
          */
         public static final String HOUR = "hour";
 
         /**
-         * Interruptions minutes in localtime 0 - 59
+         * Interruption minutes in localtime 0 - 59
          * <p>Type: INTEGER</p>
          */
         public static final String MINUTES = "minutes";
@@ -231,49 +231,15 @@ public final class InterruptionsContract {
         public static final String DURATION="duration";
 
         /**
-         * Foreign key to Interruptions table
+         * Foreign key to Interruption table
          * <p>Type: INTEGER (long)</p>
          */
         public static final String INTERRUPTION_ID = "interruption_id";
 
         /**
-         * Interruptions state
+         * Interruption state
          * <p>Type: INTEGER</p>
          */
         public static final String INTERRUPTION_STATE = "interruption_state";
-    }
-
-    /**
-     * Constants for the Cities table, which contains all selectable cities.
-     */
-    protected interface CitiesColumns {
-        /**
-         * The content:// style URL for this table.
-         */
-        public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/cities");
-
-        /**
-         * Primary id for city.
-         * <p>Type: STRING</p>
-         */
-        public static final String CITY_ID = "city_id";
-
-        /**
-         * City name.
-         * <p>Type: STRING</p>
-         */
-        public static final String CITY_NAME = "city_name";
-
-        /**
-         * Timezone name of city.
-         * <p>Type: STRING</p>
-         */
-        public static final String TIMEZONE_NAME = "timezone_name";
-
-        /**
-         * Timezone offset.
-         * <p>Type: INTEGER</p>
-         */
-        public static final String TIMEZONE_OFFSET = "timezone_offset";
     }
 }

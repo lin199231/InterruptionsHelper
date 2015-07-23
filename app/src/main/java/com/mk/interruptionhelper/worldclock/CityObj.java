@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.mk.interruptionshelper.worldclock;
+package com.mk.interruptionhelper.worldclock;
 
 import android.content.SharedPreferences;
 

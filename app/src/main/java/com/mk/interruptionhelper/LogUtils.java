@@ -18,14 +18,14 @@
  * package-level logging flag
  */
 
-package com.mk.interruptionshelper;
+package com.mk.interruptionhelper;
 
 import android.os.Build;
 import android.util.Log;
 
 public class LogUtils {
 
-    public final static String LOGTAG = "InterruptionsAlarm";
+    public final static String LOGTAG = "Interruption";
     public final static boolean DEBUG = "eng".equals(Build.TYPE) || "userdebug".equals(Build.TYPE);
 
     public static void v(String message, Object... args) {

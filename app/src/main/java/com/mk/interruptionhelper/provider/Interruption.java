@@ -1,4 +1,4 @@
-package com.mk.interruptionshelper.provider;
+package com.mk.interruptionhelper.provider;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -21,9 +21,9 @@ import java.util.List;
 /**
  * Created by MK on 2015/7/7.
  */
-public final class InterruptionsAlarm implements Parcelable, InterruptionsContract.InterruptionsColumns{
+public final class Interruption implements Parcelable, InterruptionContract.InterruptionColumns{
     /**
-     * InterruptionsAlarms start with an invalid id when it hasn't been saved to the database.
+     * Interruption start with an invalid id when it hasn't been saved to the database.
      */
     public static final long INVALID_ID = -1;
 
@@ -66,12 +66,12 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
     private static final int COLUMN_COUNT = DELETE_AFTER_USE_INDEX + 1;
 
     /*
-     * create a Context to save InterruptionsAlarm
+     * create a Context to save Interruption
      */
-    public static ContentValues createContentValues(InterruptionsAlarm interruption) {
+    public static ContentValues createContentValues(Interruption interruption) {
         ContentValues values = new ContentValues(COLUMN_COUNT);
         if (interruption.id != INVALID_ID) {
-            values.put(InterruptionsContract.InterruptionsColumns._ID, interruption.id);
+            values.put(InterruptionContract.InterruptionColumns._ID, interruption.id);
         }
 
         values.put(ENABLED, interruption.enabled ? 1 : 0);
@@ -83,7 +83,7 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
         values.put(LABEL, interruption.label);
         values.put(DELETE_AFTER_USE, interruption.deleteAfterUse);
         if (interruption.alert == null) {
-            // We want to put null, so default alarm changes
+            // We want to put null, so default interruption changes
             values.putNull(NOTIFICATION);
         } else {
             values.put(NOTIFICATION, interruption.alert.toString());
@@ -109,13 +109,13 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
     }
 
     /**
-     * Get alarm cursor loader for all alarms.
+     * Get interruption cursor loader for all interruptions.
      *
      * @param context to query the database.
-     * @return cursor loader with all the alarms.
+     * @return cursor loader with all the interruptions.
      */
-    public static CursorLoader getAlarmsCursorLoader(Context context) {
-        return new CursorLoader(context, InterruptionsContract.InterruptionsColumns.CONTENT_URI,
+    public static CursorLoader getInterruptionsCursorLoader(Context context) {
+        return new CursorLoader(context, InterruptionContract.InterruptionColumns.CONTENT_URI,
                 QUERY_COLUMNS, null, null, DEFAULT_SORT_ORDER);
     }
 
@@ -123,19 +123,19 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
      * Get interruption by id.
      *
      * @param contentResolver to perform the query on.
-     * @param interruptionId for the desired alarm.
+     * @param interruptionId for the desired interruption.
      * @return interruption if found, null otherwise
      */
-    public static InterruptionsAlarm getInterruptionsAlarm(ContentResolver contentResolver, long interruptionId) {
+    public static Interruption getInterruption(ContentResolver contentResolver, long interruptionId) {
         Cursor cursor = contentResolver.query(getUri(interruptionId), QUERY_COLUMNS, null, null, null);
-        InterruptionsAlarm result = null;
+        Interruption result = null;
         if (cursor == null) {
             return result;
         }
 
         try {
             if (cursor.moveToFirst()) {
-                result = new InterruptionsAlarm(cursor);
+                result = new Interruption(cursor);
             }
         } finally {
             cursor.close();
@@ -145,7 +145,7 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
     }
 
     /**
-     * Get all InterruptionsAlarms given conditions.
+     * Get all Interruptions given conditions.
      *
      * @param contentResolver to perform the query on.
      * @param selection A filter declaring which rows to return, formatted as an
@@ -154,13 +154,13 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
      * @param selectionArgs You may include ?s in selection, which will be
      *         replaced by the values from selectionArgs, in the order that they
      *         appear in the selection. The values will be bound as Strings.
-     * @return list of alarms matching where clause or empty list if none found.
+     * @return list of interruptions matching where clause or empty list if none found.
      */
-    public static List<InterruptionsAlarm> getInterruptionsAlarms(ContentResolver contentResolver,
+    public static List<Interruption> getInterruptions(ContentResolver contentResolver,
                                         String selection, String ... selectionArgs) {
         Cursor cursor  = contentResolver.query(CONTENT_URI, QUERY_COLUMNS,
                 selection, selectionArgs, null);
-        List<InterruptionsAlarm> result = new LinkedList<InterruptionsAlarm>();
+        List<Interruption> result = new LinkedList<Interruption>();
         if (cursor == null) {
             return result;
         }
@@ -168,7 +168,7 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
         try {
             if (cursor.moveToFirst()) {
                 do {
-                    result.add(new InterruptionsAlarm(cursor));
+                    result.add(new Interruption(cursor));
                 } while (cursor.moveToNext());
             }
         } finally {
@@ -178,33 +178,33 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
         return result;
     }
 
-    public static InterruptionsAlarm addAlarm(ContentResolver contentResolver, InterruptionsAlarm interruption) {
+    public static Interruption addInterruption(ContentResolver contentResolver, Interruption interruption) {
         ContentValues values = createContentValues(interruption);
         Uri uri = contentResolver.insert(CONTENT_URI, values);
         interruption.id = getId(uri);
         return interruption;
     }
 
-    public static boolean updateAlarm(ContentResolver contentResolver, InterruptionsAlarm interruption) {
-        if (interruption.id == InterruptionsAlarm.INVALID_ID) return false;
+    public static boolean updateInterruption(ContentResolver contentResolver, Interruption interruption) {
+        if (interruption.id == Interruption.INVALID_ID) return false;
         ContentValues values = createContentValues(interruption);
         long rowsUpdated = contentResolver.update(getUri(interruption.id), values, null, null);
         return rowsUpdated == 1;
     }
 
-    public static boolean deleteAlarm(ContentResolver contentResolver, long interruptionId) {
+    public static boolean deleteInterruption(ContentResolver contentResolver, long interruptionId) {
         if (interruptionId == INVALID_ID) return false;
         int deletedRows = contentResolver.delete(getUri(interruptionId), "", null);
         return deletedRows == 1;
     }
 
-    public static final Parcelable.Creator<InterruptionsAlarm> CREATOR = new Parcelable.Creator<InterruptionsAlarm>() {
-        public InterruptionsAlarm createFromParcel(Parcel p) {
-            return new InterruptionsAlarm(p);
+    public static final Parcelable.Creator<Interruption> CREATOR = new Parcelable.Creator<Interruption>() {
+        public Interruption createFromParcel(Parcel p) {
+            return new Interruption(p);
         }
 
-        public InterruptionsAlarm[] newArray(int size) {
-            return new InterruptionsAlarm[size];
+        public Interruption[] newArray(int size) {
+            return new Interruption[size];
         }
     };
 
@@ -222,13 +222,13 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
     public boolean deleteAfterUse;
 
 
-    // Creates a default alarm at the current time.
-    //InterruptionsAlarm的构造函数
-    public InterruptionsAlarm() {
+    // Creates a default interruption at the current time.
+    //Interruption的构造函数
+    public Interruption() {
         this(0, 0);
     }
 
-    public InterruptionsAlarm(int hour, int minutes) {
+    public Interruption(int hour, int minutes) {
         this.id = INVALID_ID;
         this.hour = hour;
         this.minutes = minutes;
@@ -239,7 +239,7 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
         this.deleteAfterUse = false;
     }
 
-    public InterruptionsAlarm(Cursor c) {
+    public Interruption(Cursor c) {
         id = c.getLong(ID_INDEX);
         enabled = c.getInt(ENABLED_INDEX) == 1;
         hour = c.getInt(HOUR_INDEX);
@@ -259,7 +259,7 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
         }
     }
 
-    InterruptionsAlarm(Parcel p) {
+    Interruption(Parcel p) {
         id = p.readLong();
         enabled = p.readInt() == 1;
         hour = p.readInt();
@@ -295,7 +295,7 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
         return 0;
     }
 
-    public InterruptionsAlarmInstance createInstanceAfter(Calendar time) {
+    public InterruptionInstance createInstanceAfter(Calendar time) {
         Calendar nextInstanceTime = Calendar.getInstance();
         nextInstanceTime.set(Calendar.YEAR, time.get(Calendar.YEAR));
         nextInstanceTime.set(Calendar.MONTH, time.get(Calendar.MONTH));
@@ -311,12 +311,12 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
         }
 
         // The day of the week might be invalid, so find next valid one
-        int addDays = daysOfWeek.calculateDaysToNextAlarm(nextInstanceTime);
+        int addDays = daysOfWeek.calculateDaysToNextInterruption(nextInstanceTime);
         if (addDays > 0) {
             nextInstanceTime.add(Calendar.DAY_OF_WEEK, addDays);
         }
 
-        InterruptionsAlarmInstance result = new InterruptionsAlarmInstance(nextInstanceTime, id);
+        InterruptionInstance result = new InterruptionInstance(nextInstanceTime, id);
         result.mVibrate = vibrate;
         result.mLabel = label;
         result.mNotification = alert;
@@ -325,8 +325,8 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof InterruptionsAlarm)) return false;
-        final InterruptionsAlarm other = (InterruptionsAlarm) o;
+        if (!(o instanceof Interruption)) return false;
+        final Interruption other = (Interruption) o;
         return id == other.id;
     }
 
@@ -335,7 +335,7 @@ public final class InterruptionsAlarm implements Parcelable, InterruptionsContra
         return Long.valueOf(id).hashCode();
     }
 
-    //以字符串形式显示InterruptionsAlarm的数据
+    //以字符串形式显示Interruption的数据
     @Override
     public String toString() {
         return "Interruption{" +

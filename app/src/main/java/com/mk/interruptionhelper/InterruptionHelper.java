@@ -1,4 +1,4 @@
-package com.mk.interruptionshelper;
+package com.mk.interruptionhelper;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
@@ -10,7 +10,9 @@ import android.view.MenuItem;
 import android.text.format.DateUtils;
 import android.widget.ImageButton;
 
-public class InterruptionsHelper extends Activity {
+import com.mk.interruptionshelper.R;
+
+public class InterruptionHelper extends Activity {
 
     private static final long BACKGROUND_COLOR_CHECK_DELAY_MILLIS = DateUtils.MINUTE_IN_MILLIS;
     private static final int BACKGROUND_COLOR_INITIAL_ANIMATION_DURATION_MILLIS = 3000;

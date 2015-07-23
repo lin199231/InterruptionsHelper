@@ -1,4 +1,4 @@
-package com.mk.interruptionshelper;
+package com.mk.interruptionhelper;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

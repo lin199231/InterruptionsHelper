@@ -1,4 +1,4 @@
-package com.mk.interruptionshelper;
+package com.mk.interruptionhelper;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -9,10 +9,12 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 
+import com.mk.interruptionshelper.R;
+
 /**
  * Created by MK on 2015/7/20.
  */
-public class InterruptionsHelperFragment extends Fragment {
+public class InterruptionHelperFragment extends Fragment {
 
     protected ImageButton mFab;
     protected ImageButton mLeftButton;
@@ -30,11 +32,11 @@ public class InterruptionsHelperFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         final Activity activity = getActivity();
-        if (activity instanceof InterruptionsHelper) {
-            final InterruptionsHelper interruptionsHelperActivity = (InterruptionsHelper) activity;
-            mFab = interruptionsHelperActivity.getFab();
-            mLeftButton = interruptionsHelperActivity.getLeftButton();
-            mRightButton = interruptionsHelperActivity.getRightButton();
+        if (activity instanceof InterruptionHelper) {
+            final InterruptionHelper interruptionHelperActivity = (InterruptionHelper) activity;
+            mFab = interruptionHelperActivity.getFab();
+            mLeftButton = interruptionHelperActivity.getLeftButton();
+            mRightButton = interruptionHelperActivity.getRightButton();
         }
     }
 
