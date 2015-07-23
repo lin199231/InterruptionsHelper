@@ -77,4 +77,10 @@ public class InterruptionsFragment extends InterruptionsHelperFragment {
         // Basic provider required by Fragment.java
     }
 
+    public void setLabel(InterruptionsAlarm alarm, String label) {
+        alarm.label = label;
+        //asyncUpdateAlarm(alarm, false);
+    }
+
+
 }

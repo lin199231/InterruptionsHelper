@@ -436,7 +436,7 @@ public class InterruptionsHelper extends Activity {
         }
 
 
-        /*
+
         @Override
         public Fragment getItem(int position) {
             // Because this public method is called outside many times,
@@ -446,16 +446,16 @@ public class InterruptionsHelper extends Activity {
             if (fragment == null) {
                 TabInfo info = mTabs.get(getRtlPosition(position));
                 fragment = Fragment.instantiate(mContext, info.clss.getName(), info.args);
-
+                /*
                 if (fragment instanceof TimerFragment) {
                     ((TimerFragment) fragment).setFabAppearance();
                     ((TimerFragment) fragment).setLeftRightButtonAppearance();
                 }
-
+                */
             }
             return fragment;
         }
-        */
+
 
         /**
          * Copied from:
@@ -658,11 +658,10 @@ public class InterruptionsHelper extends Activity {
     /**
      * Called by the LabelDialogFormat class after the dialog is finished. *
      */
-    @Override
     public void onDialogLabelSet(InterruptionsAlarm alarm, String label, String tag) {
         Fragment frag = getFragmentManager().findFragmentByTag(tag);
         if (frag instanceof InterruptionsHelperFragment) {
-            ((InterruptionsHelperFragment) frag).setLabel(alarm, label);
+            ((InterruptionsFragment) frag).setLabel(alarm, label);
         }
     }
 
