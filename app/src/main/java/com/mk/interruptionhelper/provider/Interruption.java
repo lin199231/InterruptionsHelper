@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Created by MK on 2015/7/7.
  */
-public final class Interruption implements Parcelable, InterruptionContract.InterruptionColumns{
+public final class Interruption implements Parcelable, InterruptionContract.InterruptionsColumns{
     /**
      * Interruption start with an invalid id when it hasn't been saved to the database.
      */
@@ -71,7 +71,7 @@ public final class Interruption implements Parcelable, InterruptionContract.Inte
     public static ContentValues createContentValues(Interruption interruption) {
         ContentValues values = new ContentValues(COLUMN_COUNT);
         if (interruption.id != INVALID_ID) {
-            values.put(InterruptionContract.InterruptionColumns._ID, interruption.id);
+            values.put(InterruptionContract.InterruptionsColumns._ID, interruption.id);
         }
 
         values.put(ENABLED, interruption.enabled ? 1 : 0);
@@ -115,7 +115,7 @@ public final class Interruption implements Parcelable, InterruptionContract.Inte
      * @return cursor loader with all the interruptions.
      */
     public static CursorLoader getInterruptionsCursorLoader(Context context) {
-        return new CursorLoader(context, InterruptionContract.InterruptionColumns.CONTENT_URI,
+        return new CursorLoader(context, InterruptionContract.InterruptionsColumns.CONTENT_URI,
                 QUERY_COLUMNS, null, null, DEFAULT_SORT_ORDER);
     }
 
