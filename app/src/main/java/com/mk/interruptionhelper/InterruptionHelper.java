@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.text.format.DateUtils;
 import android.widget.ImageButton;
 
-import com.mk.interruptionshelper.R;
+import com.mk.interruptionhelper.R;
 
 public class InterruptionHelper extends Activity {
 

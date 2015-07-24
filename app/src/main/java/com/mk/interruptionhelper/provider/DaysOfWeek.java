@@ -18,7 +18,7 @@ package com.mk.interruptionhelper.provider;
 
 import android.content.Context;
 
-import com.mk.interruptionshelper.R;
+import com.mk.interruptionhelper.R;
 
 import java.text.DateFormatSymbols;
 import java.util.Calendar;

@@ -12,7 +12,7 @@ import android.content.Intent;
 import android.content.Context;
 import android.media.RingtoneManager;
 
-import com.mk.interruptionshelper.R;
+import com.mk.interruptionhelper.R;
 
 import java.util.Calendar;
 import java.util.LinkedList;
