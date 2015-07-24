@@ -98,4 +98,47 @@ public class InterruptionDatabaseHelper extends SQLiteOpenHelper {
                 InterruptionContract.InterruptionsColumns.DELETE_AFTER_USE + ") VALUES ";
         db.execSQL(insertMe + DEFAULT_INTERRUPTION_1);
     }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int currentVersion) {
+        //LogUtils.v("Upgrading alarms database from version "
+        //        + oldVersion + " to " + currentVersion);
+        LogUtils.i("First version of this app,don't need to upgrade function");
+    }
+
+    long fixInterruptionInsert(ContentValues values) {
+        // Why are we doing this? Is this not a programming bug if we try to
+        // insert an already used id?
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        long rowId = -1;
+        try {
+            // Check if we are trying to re-use an existing id.
+            Object value = values.get(InterruptionContract.InterruptionsColumns._ID);
+            if (value != null) {
+                long id = (Long) value;
+                if (id > -1) {
+                    final Cursor cursor = db.query(INSTANCES_TABLE_NAME,
+                            new String[]{InterruptionContract.InterruptionsColumns._ID},
+                            InterruptionContract.InterruptionsColumns._ID + " = ?",
+                            new String[]{id + ""}, null, null, null);
+                    if (cursor.moveToFirst()) {
+                        // Record exists. Remove the id so sqlite can generate a new one.
+                        values.putNull(InterruptionContract.InterruptionsColumns._ID);
+                    }
+                }
+            }
+
+            rowId = db.insert(INSTANCES_TABLE_NAME, InterruptionContract.InterruptionsColumns.NOTIFICATION, values);
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+        if (rowId < 0) {
+            throw new SQLException("Failed to insert row");
+        }
+        LogUtils.v("Added interruption rowId = " + rowId);
+
+        return rowId;
+    }
 }
