@@ -31,7 +31,7 @@ public class TimerObj implements Parcelable {
     public long mTimeLeft;           // in the timer.
     public long mOriginalLength;     // length set at start of timer and by +1 min after times up
     public long mSetupLength;        // length set at start of timer
-    public TimerListItem mView;
+    //public TimerListItem mView;
     public int mState;
     public String mLabel;
     public boolean mDeleteAfterUse;
