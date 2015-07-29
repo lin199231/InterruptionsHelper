@@ -18,7 +18,7 @@
  * package-level logging flag
  */
 
-package com.mk.interruptionhelper;
+package com.mk.interruptionhelper.util;
 
 import android.os.Build;
 import android.util.Log;

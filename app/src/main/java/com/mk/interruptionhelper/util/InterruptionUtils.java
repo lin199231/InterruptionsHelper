@@ -1,4 +1,4 @@
-package com.mk.interruptionhelper;
+package com.mk.interruptionhelper.util;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -8,6 +8,9 @@ import android.text.format.DateFormat;
 import android.widget.Toast;
 
 import android.app.TimePickerDialog;
+
+import com.mk.interruptionhelper.R;
+import com.mk.interruptionhelper.ToastMaster;
 import com.mk.interruptionhelper.provider.Interruption;
 import com.mk.interruptionhelper.provider.InterruptionInstance;
 
