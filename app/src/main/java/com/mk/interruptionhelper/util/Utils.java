@@ -37,8 +37,8 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.TextClock;
 import android.widget.TextView;
 
-import com.mk.interruptionhelper.InterruptionUtils;
-import com.mk.interruptionhelper.LogUtils;
+import com.mk.interruptionhelper.util.InterruptionUtils;
+import com.mk.interruptionhelper.util.LogUtils;
 import com.mk.interruptionhelper.R;
 import com.mk.interruptionhelper.timer.Timers;
 
@@ -399,23 +399,12 @@ public class Utils {
      * For screensavers to set whether the digital or analog clock should be displayed.
      * Returns the view to be displayed.
      */
-    public static View setClockStyle(Context context, View digitalClock, View analogClock,
-                                     String clockStyleKey) {
+    public static View setClockStyle(Context context, View digitalClock, String clockStyleKey) {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context);
         String defaultClockStyle = context.getResources().getString(R.string.default_clock_style);
         String style = sharedPref.getString(clockStyleKey, defaultClockStyle);
-        View returnView;
-        if (style.equals(CLOCK_TYPE_ANALOG)) {
-            digitalClock.setVisibility(View.GONE);
-            analogClock.setVisibility(View.VISIBLE);
-            returnView = analogClock;
-        } else {
-            digitalClock.setVisibility(View.VISIBLE);
-            analogClock.setVisibility(View.GONE);
-            returnView = digitalClock;
-        }
-
-        return returnView;
+        digitalClock.setVisibility(View.VISIBLE);
+        return digitalClock;
     }
 
     /**
