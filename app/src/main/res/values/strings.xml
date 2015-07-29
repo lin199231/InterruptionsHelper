@@ -213,7 +213,7 @@
     <string name="settings">Settings</string>
 
     <!-- Setting title for changing the snooze duration. -->
-    <string name="snooze_duration_title">Snooze length</string>
+    <string name="interruption_duration_title">Interruption length</string>
 
     <plurals name="snooze_duration">
         <!-- Duration for one minute -->
