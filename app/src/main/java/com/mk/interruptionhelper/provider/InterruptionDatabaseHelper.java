@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.text.TextUtils;
 
-import com.mk.interruptionhelper.LogUtils;
+import com.mk.interruptionhelper.util.LogUtils;
 
 import java.util.Calendar;
 

@@ -159,7 +159,7 @@ public class Utils {
         return Math.max(strokeSize, Math.max(dotStrokeSize, markerStrokeSize));
     }
 
-    /**
+    /*
      * Uses {@link Utils#calculateRadiusOffset(float, float, float)} after fetching the values
      * from the resources just as {@link CircleTimerView#init(android.content.Context)} does.
      */

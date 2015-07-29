@@ -10,7 +10,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Vibrator;
 
-import com.mk.interruptionhelper.LogUtils;
+import com.mk.interruptionhelper.util.LogUtils;
 import com.mk.interruptionhelper.R;
 import com.mk.interruptionhelper.provider.InterruptionInstance;
 

@@ -35,7 +35,8 @@ public class TimerFragmentAdapter extends FragmentStatePagerAdapter2 {
 
     @Override
     public Fragment getItem(int position) {
-        return TimerItemFragment.newInstance(mTimerList.get(position));
+        //return TimerItemFragment.newInstance(mTimerList.get(position));
+        return null;
     }
 
     public void addTimer(TimerObj timer) {
@@ -69,9 +70,9 @@ public class TimerFragmentAdapter extends FragmentStatePagerAdapter2 {
         for (int i = 0; i < mTimerList.size(); i++) {
             TimerObj timer = mTimerList.get(i);
             if (timer.mTimerId == id) {
-                if (timer.mView != null) {
-                    timer.mView.stop();
-                }
+//                if (timer.mView != null) {
+//                    timer.mView.stop();
+//                }
                 timer.deleteFromSharedPref(mSharedPrefs);
                 mTimerList.remove(i);
                 break;

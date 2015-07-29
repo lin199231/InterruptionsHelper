@@ -128,10 +128,10 @@ public class ClockFragment extends InterruptionHelperFragment implements OnShare
 
         // On tablet landscape, the clock frame will be a distinct view. Otherwise, it'll be added
         // on as a header to the main listview.
-        mClockFrame = v.findViewById(R.id.main_clock_left_pane);
+       // mClockFrame = v.findViewById(R.id.main_clock_left_pane);
         mHairline = v.findViewById(R.id.hairline);
         if (mClockFrame == null) {
-            mClockFrame = inflater.inflate(R.layout.main_clock_frame, mList, false);
+            mClockFrame = inflater.inflate(R.layout.main_clock_frame, null, false);
             mHairline = mClockFrame.findViewById(R.id.hairline);
             mHairline.setVisibility(View.VISIBLE);
             //mList.addHeaderView(mClockFrame, null, false);
@@ -150,16 +150,16 @@ public class ClockFragment extends InterruptionHelperFragment implements OnShare
         }
 
         mDigitalClock = mClockFrame.findViewById(R.id.digital_clock);
-        mAnalogClock = mClockFrame.findViewById(R.id.analog_clock);
+        //mAnalogClock = mClockFrame.findViewById(R.id.analog_clock);
         Utils.setTimeFormat((TextClock) (mDigitalClock.findViewById(R.id.digital_clock)),
                 (int) getResources().getDimension(R.dimen.main_ampm_font_size));
-        View footerView = inflater.inflate(R.layout.blank_footer_view, mList, false);
-        mList.addFooterView(footerView, null, false);
-        mAdapter = new WorldClockAdapter(getActivity());
-        if (mAdapter.getCount() == 0) {
-            mHairline.setVisibility(View.GONE);
-        }
-        mList.setAdapter(mAdapter);
+//        View footerView = inflater.inflate(R.layout.blank_footer_view, mList, false);
+//        mList.addFooterView(footerView, null, false);
+//        mAdapter = new WorldClockAdapter(getActivity());
+//        if (mAdapter.getCount() == 0) {
+//            mHairline.setVisibility(View.GONE);
+//        }
+//        mList.setAdapter(mAdapter);
 
         mPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         mDefaultClockStyle = getActivity().getResources().getString(R.string.default_clock_style);
@@ -191,10 +191,10 @@ public class ClockFragment extends InterruptionHelperFragment implements OnShare
         activity.registerReceiver(mIntentReceiver, filter);
 
         // Resume can invoked after changing the cities list or a change in locale
-        if (mAdapter != null) {
-            mAdapter.loadCitiesDb(activity);
-            mAdapter.reloadData(activity);
-        }
+//        if (mAdapter != null) {
+//            mAdapter.loadCitiesDb(activity);
+//            mAdapter.reloadData(activity);
+//        }
         // Resume can invoked after changing the clock style.
         /*View clockView = Utils.setClockStyle(activity, mDigitalClock, mAnalogClock,
                 SettingsFragment.KEY_CLOCK_STYLE);*/
@@ -203,12 +203,12 @@ public class ClockFragment extends InterruptionHelperFragment implements OnShare
                 Utils.CLOCK_TYPE_DIGITAL : Utils.CLOCK_TYPE_ANALOG);
 
         // Center the main clock frame if cities are empty.
-        if (getView().findViewById(R.id.main_clock_left_pane) != null && mAdapter.getCount() == 0) {
-            mList.setVisibility(View.GONE);
-        } else {
-            mList.setVisibility(View.VISIBLE);
-        }
-        mAdapter.notifyDataSetChanged();
+//        if (getView().findViewById(R.id.main_clock_left_pane) != null && mAdapter.getCount() == 0) {
+//            mList.setVisibility(View.GONE);
+//        } else {
+//            mList.setVisibility(View.VISIBLE);
+//        }
+//        mAdapter.notifyDataSetChanged();
 
         Utils.updateDate(mDateFormat, mDateFormatForAccessibility, mClockFrame);
         Utils.refreshAlarm(activity, mClockFrame);
@@ -231,16 +231,16 @@ public class ClockFragment extends InterruptionHelperFragment implements OnShare
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        if (key == SettingsFragment.KEY_CLOCK_STYLE) {
-            mClockStyle = prefs.getString(SettingsFragment.KEY_CLOCK_STYLE, mDefaultClockStyle);
-            mAdapter.notifyDataSetChanged();
-        }
+//        if (key == SettingsFragment.KEY_CLOCK_STYLE) {
+//            mClockStyle = prefs.getString(SettingsFragment.KEY_CLOCK_STYLE, mDefaultClockStyle);
+//            mAdapter.notifyDataSetChanged();
+//        }
     }
 
     @Override
     public void onFabClick(View view) {
-        final Activity activity = getActivity();
-        startActivity(new Intent(activity, CitiesActivity.class));
+        //final Activity activity = getActivity();
+        //startActivity(new Intent(activity, CitiesActivity.class));
     }
 
     @Override

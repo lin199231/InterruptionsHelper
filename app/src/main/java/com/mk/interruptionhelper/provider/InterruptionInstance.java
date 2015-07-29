@@ -10,7 +10,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 
-import com.mk.interruptionhelper.LogUtils;
+import com.mk.interruptionhelper.util.LogUtils;
 import com.mk.interruptionhelper.SettingsFragment;
 
 import java.util.Calendar;
