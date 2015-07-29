@@ -170,7 +170,7 @@ public class ScreensaverActivity extends Activity {
     }
 
     private void layoutClockSaver() {
-        setContentView(R.layout.desk_clock_saver);
+        setContentView(R.layout.interruption_clock_saver);
         mDigitalClock = findViewById(R.id.digital_clock);
         //mAnalogClock = findViewById(R.id.analog_clock);
         setClockStyle();

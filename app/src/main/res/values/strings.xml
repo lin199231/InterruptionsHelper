@@ -751,7 +751,7 @@
     </string-array>
 
     <!-- Header in the preferences settings for the section pertaining to alarms -->
-    <string name="alarm_settings">Alarms</string>
+    <string name="interruption_settings">Interruption</string>
     <string name="desk_clock_help_url" translatable="false"></string>
     <!-- Describes the running service for the stopwatch -->
     <string name="stopwatch_service_desc">Stopwatch service to run the notification.</string>

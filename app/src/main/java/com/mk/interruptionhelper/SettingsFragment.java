@@ -1,7 +1,5 @@
 package com.mk.interruptionhelper;
 
-import android.app.ActionBar;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.media.AudioManager;
 import android.os.Bundle;
@@ -11,8 +9,6 @@ import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.text.format.DateUtils;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.preference.PreferenceFragment;
 
 import com.mk.interruptionhelper.util.LogUtils;
@@ -37,8 +33,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             "volume_button_setting";
     public static final String KEY_AUTO_SILENCE =
             "auto_silence";
-    public static final String KEY_CLOCK_STYLE =
-            "clock_style";
+//    public static final String KEY_CLOCK_STYLE =
+//            "clock_style";
     public static final String KEY_HOME_TZ =
             "home_time_zone";
     public static final String KEY_AUTO_HOME_CLOCK =
@@ -106,11 +102,11 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             final ListPreference listPref = (ListPreference) pref;
             String delay = (String) newValue;
             updateAutoSnoozeSummary(listPref, delay);
-        } else if (KEY_CLOCK_STYLE.equals(pref.getKey())) {
+        } /*else if (KEY_CLOCK_STYLE.equals(pref.getKey())) {
             final ListPreference listPref = (ListPreference) pref;
             final int idx = listPref.findIndexOfValue((String) newValue);
             listPref.setSummary(listPref.getEntries()[idx]);
-        } else if (KEY_HOME_TZ.equals(pref.getKey())) {
+        }*/ else if (KEY_HOME_TZ.equals(pref.getKey())) {
             final ListPreference listPref = (ListPreference) pref;
             final int idx = listPref.findIndexOfValue((String) newValue);
             listPref.setSummary(listPref.getEntries()[idx]);
@@ -144,9 +140,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         updateAutoSnoozeSummary(listPref, delay);
         listPref.setOnPreferenceChangeListener(this);
 
-        listPref = (ListPreference) findPreference(KEY_CLOCK_STYLE);
-        listPref.setSummary(listPref.getEntry());
-        listPref.setOnPreferenceChangeListener(this);
+//        listPref = (ListPreference) findPreference(KEY_CLOCK_STYLE);
+//        listPref.setSummary(listPref.getEntry());
+//        listPref.setOnPreferenceChangeListener(this);
 
         Preference pref = findPreference(KEY_AUTO_HOME_CLOCK);
         boolean state = ((CheckBoxPreference) pref).isChecked();
