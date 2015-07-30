@@ -128,7 +128,7 @@ public class ClockFragment extends InterruptionHelperFragment implements OnShare
 
         // On tablet landscape, the clock frame will be a distinct view. Otherwise, it'll be added
         // on as a header to the main listview.
-       // mClockFrame = v.findViewById(R.id.main_clock_left_pane);
+        mClockFrame = v.findViewById(R.id.main_clock_left_pane);
         mHairline = v.findViewById(R.id.hairline);
         if (mClockFrame == null) {
             mClockFrame = inflater.inflate(R.layout.main_clock_frame, container, false);
