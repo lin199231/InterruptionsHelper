@@ -131,7 +131,7 @@ public class ClockFragment extends InterruptionHelperFragment implements OnShare
        // mClockFrame = v.findViewById(R.id.main_clock_left_pane);
         mHairline = v.findViewById(R.id.hairline);
         if (mClockFrame == null) {
-            mClockFrame = inflater.inflate(R.layout.main_clock_frame, null, false);
+            mClockFrame = inflater.inflate(R.layout.main_clock_frame, container, false);
             mHairline = mClockFrame.findViewById(R.id.hairline);
             mHairline.setVisibility(View.VISIBLE);
             //mList.addHeaderView(mClockFrame, null, false);

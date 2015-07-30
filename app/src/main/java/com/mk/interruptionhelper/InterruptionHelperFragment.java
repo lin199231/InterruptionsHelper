@@ -1,7 +1,7 @@
 package com.mk.interruptionhelper;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.widget.PopupMenuCompat;
 import android.view.MenuItem;
