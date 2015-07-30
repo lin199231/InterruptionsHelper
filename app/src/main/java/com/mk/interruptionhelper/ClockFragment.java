@@ -34,7 +34,7 @@ public class ClockFragment extends InterruptionHelperFragment implements OnShare
 
     private boolean mButtonsHidden = false;
     private View mDigitalClock, mClockFrame, mHairline;
-    //private ListView mList;
+    private ListView mList;
     private SharedPreferences mPrefs;
     private String mDateFormat;
     private String mDateFormatForAccessibility;
@@ -83,15 +83,13 @@ public class ClockFragment extends InterruptionHelperFragment implements OnShare
         if (icicle != null) {
             mButtonsHidden = icicle.getBoolean(BUTTONS_HIDDEN_KEY, false);
         }
-        //mList = (ListView) v.findViewById(R.id.cities);
-        //mList.setDivider(null);
+        mList = (ListView) v.findViewById(R.id.cities);
+        mList.setDivider(null);
 
         OnTouchListener longPressNightMode = new OnTouchListener() {
             private float mMaxMovementAllowed = -1;
             private int mLongPressTimeout = -1;
-            private float mLastTouchX
-                    ,
-                    mLastTouchY;
+            private float mLastTouchX, mLastTouchY;
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -131,16 +129,16 @@ public class ClockFragment extends InterruptionHelperFragment implements OnShare
         mClockFrame = v.findViewById(R.id.main_clock_left_pane);
         mHairline = v.findViewById(R.id.hairline);
         if (mClockFrame == null) {
-            mClockFrame = inflater.inflate(R.layout.main_clock_frame, container, false);
+            mClockFrame = inflater.inflate(R.layout.main_clock_frame, mList, false);
             mHairline = mClockFrame.findViewById(R.id.hairline);
             mHairline.setVisibility(View.VISIBLE);
-            //mList.addHeaderView(mClockFrame, null, false);
+            mList.addHeaderView(mClockFrame, null, false);
         } else {
             mHairline.setVisibility(View.GONE);
             // The main clock frame needs its own touch listener for night mode now.
             v.setOnTouchListener(longPressNightMode);
         }
-        //mList.setOnTouchListener(longPressNightMode);
+        mList.setOnTouchListener(longPressNightMode);
 
         // If the current layout has a fake overflow menu button, let the parent
         // activity set up its click and touch listeners.
@@ -153,8 +151,8 @@ public class ClockFragment extends InterruptionHelperFragment implements OnShare
         //mAnalogClock = mClockFrame.findViewById(R.id.analog_clock);
         Utils.setTimeFormat((TextClock) (mDigitalClock.findViewById(R.id.digital_clock)),
                 (int) getResources().getDimension(R.dimen.main_ampm_font_size));
-//        View footerView = inflater.inflate(R.layout.blank_footer_view, mList, false);
-//        mList.addFooterView(footerView, null, false);
+        View footerView = inflater.inflate(R.layout.blank_footer_view, mList, false);
+        mList.addFooterView(footerView, null, false);
 //        mAdapter = new WorldClockAdapter(getActivity());
 //        if (mAdapter.getCount() == 0) {
 //            mHairline.setVisibility(View.GONE);
@@ -204,10 +202,11 @@ public class ClockFragment extends InterruptionHelperFragment implements OnShare
 
         // Center the main clock frame if cities are empty.
 //        if (getView().findViewById(R.id.main_clock_left_pane) != null && mAdapter.getCount() == 0) {
-//            mList.setVisibility(View.GONE);
-//        } else {
-//            mList.setVisibility(View.VISIBLE);
-//        }
+        if (getView().findViewById(R.id.main_clock_left_pane) != null) {
+            mList.setVisibility(View.GONE);
+        } else {
+            mList.setVisibility(View.VISIBLE);
+        }
 //        mAdapter.notifyDataSetChanged();
 
         Utils.updateDate(mDateFormat, mDateFormatForAccessibility, mClockFrame);

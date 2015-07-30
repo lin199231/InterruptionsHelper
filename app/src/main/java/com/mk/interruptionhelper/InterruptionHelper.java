@@ -45,6 +45,7 @@ import java.util.TimeZone;
 import com.mk.interruptionhelper.R;
 import com.mk.interruptionhelper.provider.Interruption;
 import com.mk.interruptionhelper.timer.TimerObj;
+import com.mk.interruptionhelper.util.Utils;
 
 public class InterruptionHelper extends FragmentActivity implements LabelDialogFragment.TimerLabelDialogHandler,
         LabelDialogFragment.AlarmLabelDialogHandler {
@@ -253,19 +254,69 @@ public class InterruptionHelper extends FragmentActivity implements LabelDialogF
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        updateMenu(menu);
+        return true;
+    }
 
-        //noinspection SimplifiableIfStatement
-        /*
-        if (id == R.id.action_settings) {
+    private void updateMenu(Menu menu) {
+        // Hide "help" if we don't have a URI for it.
+        MenuItem help = menu.findItem(R.id.menu_item_help);
+        if (help != null) {
+            Utils.prepareHelpMenuItem(this, help);
+        }
+
+        // Hide "lights out" for timer.
+        MenuItem nightMode = menu.findItem(R.id.menu_item_night_mode);
+        if (mTabHost.getCurrentTab() == INTERRUPTION_TAB_INDEX) {
+            nightMode.setVisible(false);
+        } else if (mTabHost.getCurrentTab() == CLOCK_TAB_INDEX) {
+//            nightMode.setVisible(true);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (processMenuClick(item)) {
             return true;
         }
-        */
+
         return super.onOptionsItemSelected(item);
+    }
+
+    private boolean processMenuClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_item_settings:
+                startActivity(new Intent(InterruptionHelper.this, SettingsActivity.class));
+                return true;
+            case R.id.menu_item_help:
+                Intent i = item.getIntent();
+                if (i != null) {
+                    try {
+                        startActivity(i);
+                    } catch (ActivityNotFoundException e) {
+                        // No activity found to match the intent - ignore
+                    }
+                }
+                return true;
+            case R.id.menu_item_night_mode:
+                startActivity(new Intent(InterruptionHelper.this, ScreensaverActivity.class));
+            default:
+                break;
+        }
+        return true;
+    }
+
+    public void registerPageChangedListener(InterruptionHelperFragment frag) {
+        if (mTabsAdapter != null) {
+            mTabsAdapter.registerPageChangedListener(frag);
+        }
+    }
+
+    public void unregisterPageChangedListener(InterruptionHelperFragment frag) {
+        if (mTabsAdapter != null) {
+            mTabsAdapter.unregisterPageChangedListener(frag);
+        }
     }
 
     private void setBackgroundColor() {
